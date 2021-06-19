@@ -1,0 +1,23 @@
+{% extends "map/layout.html" %}
+{% load static %}
+
+{% block title %}Aruba RES Map{% endblock %}
+
+{% block body %}
+    <div class="container-fluid" id="map-container">
+        <div class="row">
+            <div class="col-3">
+                TEST
+            </div>
+            <div class="col-9">
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'map/index.js' %}"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet" />
+{%endblock %}
