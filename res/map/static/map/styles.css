@@ -1,3 +1,46 @@
 #map {
     height: 100vh;
 }
+
+.mapboxgl-marker {
+    background-image: url('images/gray_icon.png');
+    width: 20px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.fitting-location {
+    background-image: url('images/green_icon.png');
+}
+
+.poor-location {
+    background-image: url('images/red_icon.png');
+}
+
+.mapboxgl-popup {
+    max-width: 600px !important;
+}
+
+.list-group-item {
+    user-select: none;
+}
+
+#items:hover {
+    cursor: grab;
+}
+
+.chosen {
+    z-index: 2;
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    opacity: 1;
+}
+
+.drag {
+    opacity: 0;
+}
+
+.ghost {
+    opacity: 1;
+}
