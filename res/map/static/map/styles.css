@@ -9,14 +9,6 @@
     cursor: pointer;
 }
 
-.fitting-location {
-    background-image: url('images/green_icon.png') !important;
-}
-
-.poor-location {
-    background-image: url('images/red_icon.png') !important;
-}
-
 .mapboxgl-popup {
     max-width: 600px !important;
 }

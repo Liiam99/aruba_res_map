@@ -6,14 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         chosenClass: "chosen",
         dragClass: "drag",
         ghostClass: "ghost",
-        onSort: function (event) {
-            preferences = document.querySelectorAll('.list-group-item')
-            preferences.forEach((preference, index) => {
-                if (index == 0 & preference.id == 'technical') {
-                    document.getElementById('Offshore').className += ' fitting-location'
-                }
-            })
-        }
+        onSort: rank_locations
     })
 
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
@@ -22,9 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     load_map()
-
-    filter_locations()
 })
+
 
 /*
 Loads the Mapbox map with all the locations retrieved from the database.
@@ -58,6 +50,69 @@ function load_map() {
     })
 }
 
-function filter_locations() {
 
+/*
+Ranks the locations by multiplying their rankings and comparing total scores.
+*/
+function rank_locations() {
+    var preferences = document.querySelectorAll('.list-group-item')
+    var ranked_locations = {}
+
+    fetch('/locations')
+    .then(response => response.json())
+    .then(locations => {
+        locations.forEach((location) => {
+            var total_ranking = 0
+
+            preferences.forEach((preference, index) => {
+                total_ranking += location.rankings[preference.id] * (4 - index)
+            })
+
+            ranked_locations[location.name] = total_ranking
+        })
+
+        var ordered_locations = []
+
+        // Orders the locations based on their rankings from low to high.
+        while (Object.keys(ranked_locations).length > 0) {
+            var lowest_ranking = 0
+            var best_location = 0
+
+            for (let location in ranked_locations) {
+                location_ranking = ranked_locations[location]
+
+                // Keeps track of location with lowest (best) ranking.
+                if (location_ranking < lowest_ranking || lowest_ranking == 0) {
+                    lowest_ranking = location_ranking
+                    best_location = location
+                }
+            }
+
+            // Ads location to its correct position and deletes it from the queue.
+            ordered_locations.push(best_location)
+            delete ranked_locations[best_location]
+        }
+
+        colour_locations(ordered_locations)
+        console.log(ordered_locations)
+    })
+}
+
+
+/*
+Colours the location according to their ranking.
+*/
+function colour_locations(locations) {
+    locations.forEach((location, index) => {
+        location_icon = document.getElementById(location)
+        if (index == 0 || index == 1) {
+            location_icon.style.backgroundImage = "url('static/map/images/green_icon.png')";
+        }
+        else if (index > 1 && index < 5) {
+            location_icon.style.backgroundImage = "url('static/map/images/orange_icon.png')";
+        }
+        else if (index == 5 || index == 6) {
+            location_icon.style.backgroundImage = "url('static/map/images/red_icon.png')";
+        }
+    })
 }
