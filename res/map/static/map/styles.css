@@ -10,11 +10,11 @@
 }
 
 .fitting-location {
-    background-image: url('images/green_icon.png');
+    background-image: url('images/green_icon.png') !important;
 }
 
 .poor-location {
-    background-image: url('images/red_icon.png');
+    background-image: url('images/red_icon.png') !important;
 }
 
 .mapboxgl-popup {
@@ -23,6 +23,10 @@
 
 .list-group-item {
     user-select: none;
+}
+
+.info-icon:hover {
+    cursor: pointer !important;;
 }
 
 #items:hover {

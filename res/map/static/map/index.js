@@ -5,7 +5,20 @@ document.addEventListener('DOMContentLoaded', function() {
         animation: 350,
         chosenClass: "chosen",
         dragClass: "drag",
-        ghostClass: "ghost"
+        ghostClass: "ghost",
+        onSort: function (event) {
+            preferences = document.querySelectorAll('.list-group-item')
+            preferences.forEach((preference, index) => {
+                if (index == 0 & preference.id == 'technical') {
+                    document.getElementById('Offshore').className += ' fitting-location'
+                }
+            })
+        }
+    })
+
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
     })
 
     load_map()
