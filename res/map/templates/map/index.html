@@ -7,43 +7,55 @@
     <div class="container-fluid" id="map-container">
         <div class="row">
             <div class="col-md-3">
-                <div id="items" class="list-group">
-                    <div id="economic" class="list-group-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span>Economic</span>
+                <div id="prefences">
+                    <div class="d-flex justify-content-end">
+                        <span>Points Remaining&nbsp;</span>
+                        <span id="points">100</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <label for="ecological-range" class="form-label">Ecological</label>
                             <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac bibendum leo. Etiam nec velit suscipit, pharetra nisi ut, tempor purus. Nullam laoreet, nulla et ultrices ultrices, nibh justo sagittis." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                             </svg>
                         </div>
+                        <span id="ecological-points">0</span>
                     </div>
-                    <div id="ecological" class="list-group-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span>Ecological</span>
+                    <input type="range" value="0" class="form-range" id="ecological-range">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                        <label for="Technical-range" class="form-label">Technical</label>
                             <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac bibendum leo. Etiam nec velit suscipit, pharetra nisi ut, tempor purus. Nullam laoreet, nulla et ultrices ultrices, nibh justo sagittis." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                             </svg>
                         </div>
+                        <span id="technical-points">0</span>
                     </div>
-                    <div id="technical" class="list-group-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span id="economic">Technical</span>
+                    <input type="range" value="0" class="form-range" id="technical-range">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <label for="economic-range" class="form-label">Economic</label>
                             <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac bibendum leo. Etiam nec velit suscipit, pharetra nisi ut, tempor purus. Nullam laoreet, nulla et ultrices ultrices, nibh justo sagittis." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                             </svg>
                         </div>
+                        <span id="economic-points">0</span>
                     </div>
-                    <div id="social" class="list-group-item">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span id="economic">Social</span>
+                    <input type="range" value="0" class="form-range" id="economic-range">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <label for="social-range" class="form-label">Social</label>
                             <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac bibendum leo. Etiam nec velit suscipit, pharetra nisi ut, tempor purus. Nullam laoreet, nulla et ultrices ultrices, nibh justo sagittis." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                                 <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                             </svg>
                         </div>
+                        <span id="social-points">0</span>
                     </div>
+                    <input type="range" value="0" class="form-range" id="social-range">
                 </div>
             </div>
             <div class="col-md-9">
@@ -54,7 +66,6 @@
 {% endblock %}
 
 {% block script %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.13.0/Sortable.min.js" integrity="sha512-5x7t0fTAVo9dpfbp3WtE2N6bfipUwk7siViWncdDoSz2KwOqVC1N9fDxEOzk0vTThOua/mglfF8NO7uVDLRC8Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{% static 'map/index.js' %}"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet" />
