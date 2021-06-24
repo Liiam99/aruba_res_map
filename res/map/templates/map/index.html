@@ -4,64 +4,67 @@
 {% block title %}Aruba RES Map{% endblock %}
 
 {% block body %}
-    <div class="container-fluid" id="map-container">
-        <div class="row">
-            <div class="col-md-3">
-                <div id="prefences">
-                    <div class="d-flex justify-content-end">
-                        <span>Points Remaining&nbsp;</span>
-                        <span id="points">100</span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <label for="ecological-range" class="form-label">Ecological</label>
-                            <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac bibendum leo. Etiam nec velit suscipit, pharetra nisi ut, tempor purus. Nullam laoreet, nulla et ultrices ultrices, nibh justo sagittis." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                            </svg>
-                        </div>
-                        <span id="ecological-points">0</span>
-                    </div>
-                    <input type="range" value="0" class="form-range" id="ecological-range">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                        <label for="Technical-range" class="form-label">Technical</label>
-                            <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac bibendum leo. Etiam nec velit suscipit, pharetra nisi ut, tempor purus. Nullam laoreet, nulla et ultrices ultrices, nibh justo sagittis." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                            </svg>
-                        </div>
-                        <span id="technical-points">0</span>
-                    </div>
-                    <input type="range" value="0" class="form-range" id="technical-range">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <label for="economic-range" class="form-label">Economic</label>
-                            <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac bibendum leo. Etiam nec velit suscipit, pharetra nisi ut, tempor purus. Nullam laoreet, nulla et ultrices ultrices, nibh justo sagittis." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                            </svg>
-                        </div>
-                        <span id="economic-points">0</span>
-                    </div>
-                    <input type="range" value="0" class="form-range" id="economic-range">
-                    <div class="d-flex justify-content-between">
-                        <div>
-                            <label for="social-range" class="form-label">Social</label>
-                            <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac bibendum leo. Etiam nec velit suscipit, pharetra nisi ut, tempor purus. Nullam laoreet, nulla et ultrices ultrices, nibh justo sagittis." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
-                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                            </svg>
-                        </div>
-                        <span id="social-points">0</span>
-                    </div>
-                    <input type="range" value="0" class="form-range" id="social-range">
+    <div class="container-fluid flex-grow-1" id="map-container">
+        <nav class="container-fluid navbar navbar-light">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#">Placeholder</a>
+            </div>
+        </nav>
+        <div class="col-md-3 border border-1 rounded-3 " id="preferences">
+            <div id="points-box" class="d-flex justify-content-between">
+                <div class="d-flex">
+                    <h3>Weighting</h3>
+                </div>
+                <div class="d-flex border-bottom border-1">
+                    <h3><span id="points">100</span></h3>
                 </div>
             </div>
-            <div class="col-md-9">
-                <div id="map"></div>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <label for="economic-range" class="form-label">Economic Impact</label>
+                    <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac bibendum leo. Etiam nec velit suscipit, pharetra nisi ut, tempor purus. Nullam laoreet, nulla et ultrices ultrices, nibh justo sagittis." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                </div>
+                <span id="economic-points">0</span>
             </div>
+            <input type="range" value="0" class="form-range" id="economic-range">
+            <div class="d-flex justify-content-between">
+                <div>
+                <label for="efficiency-range" class="form-label">Energy Efficiency</label>
+                    <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac bibendum leo. Etiam nec velit suscipit, pharetra nisi ut, tempor purus. Nullam laoreet, nulla et ultrices ultrices, nibh justo sagittis." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                </div>
+                <span id="efficiency-points">0</span>
+            </div>
+            <input type="range" value="0" class="form-range" id="efficiency-range">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <label for="environmental-range" class="form-label">Environmental Impact</label>
+                    <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac bibendum leo. Etiam nec velit suscipit, pharetra nisi ut, tempor purus. Nullam laoreet, nulla et ultrices ultrices, nibh justo sagittis." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                </div>
+                <span id="environmental-points">0</span>
+            </div>
+            <input type="range" value="0" class="form-range" id="environmental-range">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <label for="social-range" class="form-label">Social Impact</label>
+                    <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac bibendum leo. Etiam nec velit suscipit, pharetra nisi ut, tempor purus. Nullam laoreet, nulla et ultrices ultrices, nibh justo sagittis." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg>
+                </div>
+                <span id="social-points">0</span>
+            </div>
+            <input type="range" value="0" class="form-range" id="social-range">
         </div>
+        <div id="map"></div>
     </div>
 {% endblock %}
 

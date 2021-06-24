@@ -14,12 +14,18 @@ class Location(models.Model):
     name = models.CharField(max_length=100)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
-    description = models.TextField(blank=True)
+    overview = models.TextField(blank=True)
     image = models.URLField(max_length=500, blank=True, null=True)
-    ecological_ranking = models.IntegerField()
+
     economic_ranking = models.IntegerField()
+    efficiency_ranking = models.IntegerField()
+    environmental_ranking = models.IntegerField()
     social_ranking = models.IntegerField()
-    technical_ranking = models.IntegerField()
+
+    economic_description = models.TextField(blank=True)
+    efficiency_description = models.TextField(blank=True)
+    environmental_description = models.TextField(blank=True)
+    social_description = models.TextField(blank=True)
 
     def __str__(self):
         return f"{self.name}, {self.longitude, self.latitude}"
@@ -28,12 +34,18 @@ class Location(models.Model):
         return {
             "name": self.name,
             "coords": (self.longitude, self.latitude),
-            "description": self.description,
             "image": self.image,
             "rankings": {
-                "ecological": self.ecological_ranking,
                 "economic": self.economic_ranking,
+                "efficiency": self.efficiency_ranking,
+                "environmental": self.environmental_ranking,
                 "social": self.social_ranking,
-                "technical": self.technical_ranking
+            },
+            "descriptions": {
+                "overview": self.overview,
+                "economic": self.economic_description,
+                "efficiency": self.efficiency_description,
+                "environmental": self.efficiency_description,
+                "social": self.social_description
             }
         }
