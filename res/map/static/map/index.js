@@ -60,6 +60,24 @@ function load_map() {
             let popup = new mapboxgl.Popup({ offset: 25 })
                 .setHTML(popup_content);
 
+            // When closed with the 'x' button set the 'active state' to the
+            // overview tab to reset the dynamic tab interface.
+            popup._closeButton.addEventListener('click', () => {
+                let active_items = popup._content.querySelectorAll('.active')
+
+                let active_nav_button = active_items[0]
+                active_nav_button.classList.remove('active')
+                active_nav_button.setAttribute('aria-selected', 'false')
+                let active_tab_pane = active_items[1]
+                active_tab_pane.classList.remove('active', 'show')
+
+                let overview_nav_button = popup._content.querySelector('#nav-overview-tab')
+                overview_nav_button.classList.add('active')
+                active_nav_button.setAttribute('aria-selected', 'true')
+                let overview_tab_pane = popup._content.querySelector('#nav-overview')
+                overview_tab_pane.classList.add('active', 'show')
+            })
+
             let element = document.createElement('div');
             element.id = location.name;
 
@@ -124,6 +142,13 @@ function create_popup_content(location) {
             tab.setAttribute('aria-labelledby', `nav-${tab_name}-tab`)
             tab.innerHTML = location.descriptions[tab_name]
             tab.innerHTML = tab.innerHTML.replace(/\n/g, "<br>")
+
+            if (tab_name == "overview") {
+                overview_image = document.createElement('img')
+                overview_image.src = location.image
+                overview_image.className = 'img-fluid location-img'
+                tab.prepend(overview_image)
+            }
 
             tab_box.appendChild(tab)
 
@@ -198,7 +223,7 @@ function colour_locations(locations) {
     if (points == 100) {
         locations.forEach(location => {
             let location_icon = document.getElementById(location);
-            location_icon.style.backgroundImage = "url('static/map/images/gray_icon.png')";
+            location_icon.style.backgroundImage = "url('static/map/images/orange_icon.png')";
         });
     }
     else {
@@ -208,7 +233,7 @@ function colour_locations(locations) {
                 location_icon.style.backgroundImage = "url('static/map/images/green_icon.png')";
             }
             else if (index > 1 && index < 5) {
-                location_icon.style.backgroundImage = "url('static/map/images/orange_icon.png')";
+                location_icon.style.backgroundImage = "url('static/map/images/yellow_icon.png')";
             }
             else if (index == 5 || index == 6) {
                 location_icon.style.backgroundImage = "url('static/map/images/red_icon.png')";

@@ -1,5 +1,4 @@
 @charset "UTF-8";
-/* finally, import Bootstrap */
 /*!
  * Bootstrap v5.0.2 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10757,6 +10756,10 @@ h3, .h3 {
   margin-bottom: 0;
 }
 
+h5, .h5 {
+  color: #fd7e14;
+}
+
 .border {
   border-color: #fd7e14 !important;
 }
@@ -10769,16 +10772,17 @@ h3, .h3 {
   padding-top: 0.01rem;
   padding-bottom: 0.01rem;
   position: absolute;
-  z-index: 2;
-}
-
-.navbar-light {
-  background-color: #fd7e14;
+  z-index: 3;
 }
 
 .navbar-brand {
   margin-left: 10px;
+  margin-right: 10px;
   color: #ffffff !important;
+}
+
+.navbar-nav {
+  margin-left: 10px;
 }
 
 .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
@@ -10809,7 +10813,7 @@ h3, .h3 {
 }
 
 .mapboxgl-marker {
-  background-image: url("images/gray_icon.png");
+  background-image: url("images/orange_icon.png");
   width: 20px;
   height: 48px;
   cursor: pointer;
@@ -10819,10 +10823,40 @@ h3, .h3 {
   max-width: 660px !important;
 }
 
+.mapboxgl-popup-content {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
 .popup-title {
   text-align: center;
   margin-bottom: 10px;
   color: #fd7e14;
+}
+
+.tab-pane {
+  text-align: justify;
+}
+
+.location-img {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#background-container {
+  background-color: #081120;
+}
+
+.card {
+  margin-top: 50px;
+  height: 400px;
+}
+
+#sources-container {
+  padding-top: 15px;
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */

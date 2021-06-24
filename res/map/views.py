@@ -12,3 +12,7 @@ def locations(request):
     locations = Location.objects.all()
     return JsonResponse([location.serialise() for location in locations],
                         safe=False)
+
+def sources(request):
+    """Loads the page with sources."""
+    return render(request, "map/sources.html")
