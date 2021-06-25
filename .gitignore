@@ -129,6 +129,6 @@ dmypy.json
 .pyre/
 
 # Sass
-res/map/static/map/scss
+map/static/map/bootstrap
 **.css.map
-res/map/static/map/bootstrap
+map/static/map/scss
