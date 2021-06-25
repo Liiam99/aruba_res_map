@@ -4,19 +4,30 @@
 {% block title %}RankTheRenewables - Sources{% endblock %}
 
 {% block body %}
-<div class="container-fluid flex-grow-1" id="background-container">
+<div class="container-fluid background-container flex-grow-1">
     <div class="container" id="sources-container">
         <div class="row">
-            <div class="col-sm-6">
-                <div class="card border overflow-auto">
+            <div class="col-lg-6">
+                <div class="card border overflow-auto source-card">
                     <div class="card-body">
                       <h5 class="card-title">Economic Impact</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <p class="card-text">Baban, S. M. (2004). Developing a geoinformatics-based approach to locate wind farms in the Caribbean region, using Trinidad and Tobago as a case study. In Proceedings of the Second Caribbean Environmental Forum and Exhibition (GEF-2) on CD.
+                        <br><br>
+                        Bilgili, M., Yasar, A., & Simsek, E. (2011). Offshore wind power development in Europe and its comparison with onshore counterpart. Renewable and Sustainable Energy Reviews, 15(2), 905-915.
+                        <br><br>
+                        Blechinger, P., Cader, C., Bertheau, P., Huyskens, H., Seguin, R., & Breyer, C. (2016). Global analysis of the techno-economic potential of renewable energy hybrid systems on small islands. Energy Policy, 98, 674-687.
+                        <br><br>
+                        Gonzalez-Rodriguez, A. G. (2017). Review of offshore wind farm cost components. Energy for Sustainable Development, 37, 10-19.
+                        <br><br>
+                        Kuik, M. (2021). A geodiversity-based suitability analysis on underground electricity cables on Aruba (Issue May). Universiteit van Amsterdam.
+                        <br><br>
+                        Rogers, T., Ashtine, M., Koon, R. K., & Atherley-Ikechi, M. (2019). Onshore wind energy potential for Small Island Developing States: Findings and recommendations from Barbados. Energy for Sustainable Development, 52, 116-127.
+                        </p>
                     </div>
                   </div>
             </div>
-            <div class="col-sm-6">
-                <div class="card border overflow-auto">
+            <div class="col-lg-6">
+                <div class="card border overflow-auto source-card">
                     <div class="card-body">
                       <h5 class="card-title">Energy Efficiency</h5>
                       <p class="card-text">Global wind atlas (n.d.). Accessed on 23 June 2021 from Global Wind Atlas
@@ -31,8 +42,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
-                <div class="card border overflow-auto">
+            <div class="col-lg-6">
+                <div class="card border overflow-auto source-card">
                     <div class="card-body">
                       <h5 class="card-title">Environmental Impact</h5>
                       <p class="card-text">Alto Vista Trail and Beach Road Loop (2021), All trails Aruba. Accesed from: https://www.alltrails.com/trail/aruba/aruba/alto-vista-stroll
@@ -59,8 +70,8 @@
                     </div>
                   </div>
             </div>
-            <div class="col-sm-6">
-                <div class="card border overflow-auto">
+            <div class="col-lg-6">
+                <div class="card border overflow-auto source-card">
                     <div class="card-body">
                       <h5 class="card-title">Social Impact</h5>
                       <p class="card-text">Aruba Tourism Authority (ATA) (n.d.). Sand dunes. Retrieved at June 18, 2021 from https://www.aruba.com/uk/explore/sand-dunes
@@ -97,5 +108,10 @@
 {% endblock %}
 
 {% block script %}
-    <script src="{% static 'map/sources.js' %}"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let current_nav_button = document.getElementsByClassName('nav-link')[1]
+            current_nav_button.classList.add('active')
+        })
+    </script>
 {% endblock %}

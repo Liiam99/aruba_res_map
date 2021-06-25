@@ -1,0 +1,49 @@
+{% extends "map/layout.html" %}
+{% load static %}
+
+{% block title %}RankTheRenewables - Help{% endblock %}
+
+{% block body %}
+<div class="container-fluid background-container flex-grow-1">
+    <div class="container" id="help-container">
+        <div class="row">
+          <div class="d-flex col-lg-4 justify-content-center">
+            <div class="card border help-card">
+                <img src="{% static 'map/images/weighting_card.png' %}" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Criteria</h5>
+                  <p class="card-text">You define the weights of the criteria by dividing a maximum of 100 points between the four criteria. You are in charge to choose what is more important for the placement of renewable energy systems.</p>
+                </div>
+            </div>
+          </div>
+          <div class="d-flex col-lg-4 justify-content-center">
+            <div class="card border help-card">
+                <img src="{% static 'map/images/icon_card.png' %}" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Rankings</h5>
+                  <p class="card-text">Based on your weights for the criteria the locations will have different rankings, marked by three colours: green if it is a fitting location, yellow if it is an okay location, and red if it is an unsuitable location.</p>
+                </div>
+            </div>
+          </div>
+          <div class="d-flex col-lg-4 justify-content-center">
+            <div class="card border help-card">
+                <img src="{% static 'map/images/description_card.png' %}" class="card-img-top">
+                <div class="card-body">
+                  <h5 class="card-title">Descriptions</h5>
+                  <p class="card-text">By clicking on a marker you can read the in-depth descriptions of all the criteria for that specific location.</p>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let current_nav_button = document.getElementsByClassName('nav-link')[0]
+            current_nav_button.classList.add('active')
+        })
+    </script>
+{% endblock %}

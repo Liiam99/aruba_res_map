@@ -10781,7 +10781,7 @@ h5, .h5 {
   color: #ffffff !important;
 }
 
-.navbar-nav {
+.nav-link {
   margin-left: 10px;
 }
 
@@ -10801,6 +10801,11 @@ h5, .h5 {
   margin-top: 80px;
   margin-left: 40px;
   z-index: 2;
+  transition: transform 0.2s;
+}
+
+#preferences:hover {
+  transform: scale(1.03);
 }
 
 .info-icon {
@@ -10820,7 +10825,7 @@ h5, .h5 {
 }
 
 .mapboxgl-popup {
-  max-width: 660px !important;
+  max-width: 680px !important;
 }
 
 .mapboxgl-popup-content {
@@ -10839,15 +10844,16 @@ h5, .h5 {
 }
 
 .location-img {
+  width: 650px !important;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-#background-container {
+.background-container {
   background-color: #081120;
 }
 
-.card {
+.source-card {
   margin-top: 50px;
   height: 400px;
 }
@@ -10857,6 +10863,27 @@ h5, .h5 {
   padding-left: 30px;
   padding-right: 30px;
   max-width: 100%;
+}
+
+#help-container {
+  max-width: 100%;
+}
+
+.help-card {
+  margin-top: 100px;
+  max-height: 800px !important;
+  width: 400px !important;
+  transition: transform 0.2s;
+}
+
+.help-card:hover {
+  transform: scale(1.03);
+}
+
+.card-img-top {
+  width: auto;
+  max-height: 500px;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=styles.css.map */

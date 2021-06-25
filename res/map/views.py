@@ -13,6 +13,10 @@ def locations(request):
     return JsonResponse([location.serialise() for location in locations],
                         safe=False)
 
+def help(request):
+    """Loads the help page for instructions."""
+    return render(request, "map/help.html")
+
 def sources(request):
     """Loads the page with sources."""
     return render(request, "map/sources.html")
