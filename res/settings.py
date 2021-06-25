@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'kemc091dkt#*mf1)w8uhuj=kx21baj
 # DEBUG = True
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['aruba-res-map.herokuapp.com']
+ALLOWED_HOSTS = ['ranktherenewables.herokuapp.com', '127.0.0.1', 'ranktherenewables.xyz', 'www.ranktherenewables.xyz']
 
 
 # Application definition
