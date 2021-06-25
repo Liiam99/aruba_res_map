@@ -45,7 +45,7 @@ class Location(models.Model):
                 "overview": self.overview,
                 "economic": self.economic_description,
                 "efficiency": self.efficiency_description,
-                "environmental": self.efficiency_description,
+                "environmental": self.environmental_description,
                 "social": self.social_description
             }
         }
