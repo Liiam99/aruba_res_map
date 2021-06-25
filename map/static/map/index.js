@@ -182,7 +182,12 @@ function rank_locations() {
 
         sliders.forEach(slider => {
             let slider_type = slider.id.replace("-range", "");
-            total_ranking += location.rankings[slider_type] * slider.value;
+            slider_value = slider.value
+            if (slider_value == 0) {
+                slider_value = 1
+            }
+
+            total_ranking += location.rankings[slider_type] * slider_value;
         });
 
         ranked_locations[location.name] = total_ranking;
