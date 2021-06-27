@@ -10790,11 +10790,11 @@ h5, .h5 {
   padding-left: 0;
 }
 
-#points-box {
+#points-container {
   margin-bottom: 15px;
 }
 
-#preferences {
+#weighting-menu {
   background-color: white;
   position: absolute;
   padding: 17px;
@@ -10804,7 +10804,7 @@ h5, .h5 {
   transition: transform 0.2s;
 }
 
-#preferences:hover {
+#weighting-menu:hover {
   transform: scale(1.03);
 }
 

@@ -7,9 +7,12 @@ class User(AbstractUser):
 
 
 class Location(models.Model):
-    """PLACEHOLDER
+    """A location for a Renewable Energy System with multiple rankings.
 
-    PLACEHOLDER.
+    A location is required to have a name and a GPS coordinate. Moreover,
+    each location must receive a ranking for each aspect: economic impact,
+    energy efficiency, environmental impact, and social impact. Descriptions
+    of each aspect and an overview including image are all optional.
     """
     name = models.CharField(max_length=100)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
@@ -46,6 +49,6 @@ class Location(models.Model):
                 "economic": self.economic_description,
                 "efficiency": self.efficiency_description,
                 "environmental": self.environmental_description,
-                "social": self.social_description
+                "social": self.social_description,
             }
         }

@@ -56,27 +56,27 @@ function load_map() {
     .then(response => response.json())
     .then(locations => {
         locations.forEach(location => {
-            popup_content = create_popup_content(location)
+            popup_content = create_popup_content(location);
             let popup = new mapboxgl.Popup({ offset: 25 })
                 .setHTML(popup_content);
 
             // When closed with the 'x' button set the 'active state' to the
             // overview tab to reset the dynamic tab interface.
             popup._closeButton.addEventListener('click', () => {
-                let active_items = popup._content.querySelectorAll('.active')
+                let active_items = popup._content.querySelectorAll('.active');
 
-                let active_nav_button = active_items[0]
-                active_nav_button.classList.remove('active')
-                active_nav_button.setAttribute('aria-selected', 'false')
-                let active_tab_pane = active_items[1]
-                active_tab_pane.classList.remove('active', 'show')
+                let active_nav_button = active_items[0];
+                active_nav_button.classList.remove('active');
+                active_nav_button.setAttribute('aria-selected', 'false');
+                let active_tab_pane = active_items[1];
+                active_tab_pane.classList.remove('active', 'show');
 
-                let overview_nav_button = popup._content.querySelector('#nav-overview-tab')
-                overview_nav_button.classList.add('active')
-                active_nav_button.setAttribute('aria-selected', 'true')
-                let overview_tab_pane = popup._content.querySelector('#nav-overview')
-                overview_tab_pane.classList.add('active', 'show')
-            })
+                let overview_nav_button = popup._content.querySelector('#nav-overview-tab');
+                overview_nav_button.classList.add('active');
+                active_nav_button.setAttribute('aria-selected', 'true');
+                let overview_tab_pane = popup._content.querySelector('#nav-overview');
+                overview_tab_pane.classList.add('active', 'show');
+            });
 
             let element = document.createElement('div');
             element.id = location.name;
@@ -96,75 +96,75 @@ function load_map() {
 Creates a Bootstrap dynamic tabbed interface with descriptions.
 */
 function create_popup_content(location) {
-    let content = document.createElement('div')
+    let content = document.createElement('div');
 
-    let title = document.createElement('h3')
-    title.innerHTML = location.name
-    title.className = "popup-title"
+    let title = document.createElement('h3');
+    title.innerHTML = location.name;
+    title.className = "popup-title";
 
-    let nav = document.createElement('nav')
-    let nav_tab = document.createElement('div')
-    nav_tab.id = "nav-tab"
-    nav_tab.className = "nav justify-content-center nav-tabs"
-    nav_tab.setAttribute('role', 'tablist')
-    nav.appendChild(nav_tab)
+    let nav = document.createElement('nav');
+    let nav_tab = document.createElement('div');
+    nav_tab.id = "nav-tab";
+    nav_tab.className = "nav justify-content-center nav-tabs";
+    nav_tab.setAttribute('role', 'tablist');
+    nav.appendChild(nav_tab);
 
-    let tab_box = document.createElement('div')
-    tab_box.id = "nav-tabContent"
-    tab_box.className ="tab-content"
+    let tab_box = document.createElement('div');
+    tab_box.id = "nav-tabContent";
+    tab_box.className ="tab-content";
 
     // Fills each tab with the description.
     for (let tab_name in location.descriptions) {
         if (location.descriptions.hasOwnProperty(tab_name)) {
-            let nav_button = document.createElement('button')
-            nav_button.className = "nav-link"
-            nav_button.id = `nav-${tab_name}-tab`
-            nav_button.setAttribute("data-bs-toggle", "tab")
-            nav_button.setAttribute("data-bs-target", `#nav-${tab_name}`)
-            nav_button.type = "button"
-            nav_button.setAttribute("role", "tab")
-            nav_button.setAttribute("aria-controls", `#nav-${tab_name}`)
-            nav_button.setAttribute("aria-selected", "false")
-            nav_button.innerHTML = tab_name.charAt(0).toUpperCase() + tab_name.slice(1)
+            let nav_button = document.createElement('button');
+            nav_button.className = "nav-link";
+            nav_button.id = `nav-${tab_name}-tab`;
+            nav_button.setAttribute("data-bs-toggle", "tab");
+            nav_button.setAttribute("data-bs-target", `#nav-${tab_name}`);
+            nav_button.type = "button";
+            nav_button.setAttribute("role", "tab");
+            nav_button.setAttribute("aria-controls", `#nav-${tab_name}`);
+            nav_button.setAttribute("aria-selected", "false");
+            nav_button.innerHTML = tab_name.charAt(0).toUpperCase() + tab_name.slice(1);
 
             if (tab_name == "efficiency") {
-                nav_button.innerHTML = "Energy " + nav_button.innerHTML
+                nav_button.innerHTML = "Energy " + nav_button.innerHTML;
             } else if (tab_name != "overview") {
-                nav_button.innerHTML += " Impact"
+                nav_button.innerHTML += " Impact";
             }
 
-            nav_tab.appendChild(nav_button)
+            nav_tab.appendChild(nav_button);
 
-            let tab = document.createElement('div')
-            tab.className = "tab-pane fade"
-            tab.id = `nav-${tab_name}`
-            tab.setAttribute('role', "tabpanel")
-            tab.setAttribute('aria-labelledby', `nav-${tab_name}-tab`)
-            tab.innerHTML = location.descriptions[tab_name]
-            tab.innerHTML = tab.innerHTML.replace(/\n/g, "<br>")
+            let tab = document.createElement('div');
+            tab.className = "tab-pane fade";
+            tab.id = `nav-${tab_name}`;
+            tab.setAttribute('role', "tabpanel");
+            tab.setAttribute('aria-labelledby', `nav-${tab_name}-tab`);
+            tab.innerHTML = location.descriptions[tab_name];
+            tab.innerHTML = tab.innerHTML.replace(/\n/g, "<br>");
 
             if (tab_name == "overview") {
-                overview_image = document.createElement('img')
-                overview_image.src = location.image
-                overview_image.className = 'img-fluid location-img'
-                tab.prepend(overview_image)
+                overview_image = document.createElement('img');
+                overview_image.src = location.image;
+                overview_image.className = 'img-fluid location-img';
+                tab.prepend(overview_image);
             }
 
-            tab_box.appendChild(tab)
+            tab_box.appendChild(tab);
 
             if (nav.childNodes.length == 1 && tab_box.childNodes.length == 1) {
-                nav_button.className += " active"
-                nav_button.setAttribute("aria-selected", "true")
-                tab.className += " show active"
+                nav_button.className += " active";
+                nav_button.setAttribute("aria-selected", "true");
+                tab.className += " show active";
             }
         }
     }
 
-    content.append(title)
-    content.appendChild(nav)
-    content.appendChild(tab_box)
+    content.append(title);
+    content.appendChild(nav);
+    content.appendChild(tab_box);
 
-    return content.innerHTML
+    return content.innerHTML;
 }
 
 
@@ -182,9 +182,9 @@ function rank_locations() {
 
         sliders.forEach(slider => {
             let slider_type = slider.id.replace("-range", "");
-            slider_value = slider.value
+            slider_value = slider.value;
             if (slider_value == 0) {
-                slider_value = 1
+                slider_value = 1;
             }
 
             total_ranking += location.rankings[slider_type] * slider_value;
