@@ -6,33 +6,33 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('map', '0005_auto_20210622_1704'),
+        ("map", "0005_auto_20210622_1704"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='location',
-            old_name='description',
-            new_name='overview',
+            model_name="location",
+            old_name="description",
+            new_name="overview",
         ),
         migrations.AddField(
-            model_name='location',
-            name='economic_description',
+            model_name="location",
+            name="economic_description",
             field=models.TextField(blank=True),
         ),
         migrations.AddField(
-            model_name='location',
-            name='efficiency_description',
+            model_name="location",
+            name="efficiency_description",
             field=models.TextField(blank=True),
         ),
         migrations.AddField(
-            model_name='location',
-            name='environmental_description',
+            model_name="location",
+            name="environmental_description",
             field=models.TextField(blank=True),
         ),
         migrations.AddField(
-            model_name='location',
-            name='social_description',
+            model_name="location",
+            name="social_description",
             field=models.TextField(blank=True),
         ),
     ]

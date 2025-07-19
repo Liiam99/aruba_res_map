@@ -12,8 +12,7 @@ def index(request):
 def locations(request):
     """Returns all the potential locations for RES in the database."""
     locations = Location.objects.all()
-    return JsonResponse([location.serialise() for location in locations],
-                        safe=False)
+    return JsonResponse([location.serialise() for location in locations], safe=False)
 
 
 def help(request):

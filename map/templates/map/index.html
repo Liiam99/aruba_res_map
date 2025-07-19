@@ -1,70 +1,132 @@
-{% extends "map/layout.html" %}
-{% load static %}
-
+{% extends "map/layout.html" %} {% load static %}
 {% block title %}RankTheRenewables{% endblock %}
-
 {% block body %}
-    <div class="container-fluid flex-grow-1" id="map-container">
-        <div class="col-md-3 border border-1 rounded-3 " id="weighting-menu">
-            <div id="points-container" class="d-flex justify-content-between">
-                <div class="d-flex">
-                    <h3>Weighting</h3>
-                </div>
-                <div class="d-flex border-bottom border-1">
-                    <h3><span id="points">100</span></h3>
-                </div>
-            </div>
-            <div class="d-flex justify-content-between">
-                <div>
-                    <label for="economic-range" class="form-label">Economic Impact</label>
-                    <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Economic feasibility based on the building costs and power generation costs. The building costs are determined by landscape, proximity to infrastructure, and proximity to the grid. Power generation costs are determined by energy efficiency." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                    </svg>
-                </div>
-                <span id="economic-points">0</span>
-            </div>
-            <input type="range" value="0" class="form-range" id="economic-range">
-            <div class="d-flex justify-content-between">
-                <div>
-                <label for="efficiency-range" class="form-label">Energy Efficiency</label>
-                    <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Yield of wind turbines and solar panels of each location. This differs due to natural factors such as wind power density and solar irradiance." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                    </svg>
-                </div>
-                <span id="efficiency-points">0</span>
-            </div>
-            <input type="range" value="0" class="form-range" id="efficiency-range">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <label for="environmental-range" class="form-label">Environmental Impact</label>
-                    <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Effects of wind and solar farms on soil health, vegetation and/or wildlife in the area." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                    </svg>
-                </div>
-                <span id="environmental-points">0</span>
-            </div>
-            <input type="range" value="0" class="form-range" id="environmental-range">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <label for="social-range" class="form-label">Social Impact</label>
-                    <svg class="info-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Effects of wind and solar farms on the aesthetics of a landscape and negative externalities such as noise, shadow flickering and a decrease in average house price." xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                        <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                    </svg>
-                </div>
-                <span id="social-points">0</span>
-            </div>
-            <input type="range" value="0" class="form-range" id="social-range">
-        </div>
-        <div id="map"></div>
+<div class="container-fluid flex-grow-1" id="map-container">
+  <div class="col-md-3 border border-1 rounded-3" id="weighting-menu">
+    <div id="points-container" class="d-flex justify-content-between">
+      <div class="d-flex">
+        <h3>Weighting</h3>
+      </div>
+      <div class="d-flex border-bottom border-1">
+        <h3><span id="points">100</span></h3>
+      </div>
     </div>
-{% endblock %}
-
-{% block script %}
-    <script src="{% static 'map/index.js' %}"></script>
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet" />
+    <div class="d-flex justify-content-between">
+      <div>
+        <label for="economic-range" class="form-label">Economic Impact</label>
+        <svg
+          class="info-icon"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Economic feasibility based on the building costs and power generation costs. The building costs are determined by landscape, proximity to infrastructure, and proximity to the grid. Power generation costs are determined by energy efficiency."
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-info-circle"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+          />
+          <path
+            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+          />
+        </svg>
+      </div>
+      <span id="economic-points">0</span>
+    </div>
+    <input type="range" value="0" class="form-range" id="economic-range" />
+    <div class="d-flex justify-content-between">
+      <div>
+        <label for="efficiency-range" class="form-label"
+          >Energy Efficiency</label
+        >
+        <svg
+          class="info-icon"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Yield of wind turbines and solar panels of each location. This differs due to natural factors such as wind power density and solar irradiance."
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-info-circle"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+          />
+          <path
+            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+          />
+        </svg>
+      </div>
+      <span id="efficiency-points">0</span>
+    </div>
+    <input type="range" value="0" class="form-range" id="efficiency-range" />
+    <div class="d-flex justify-content-between">
+      <div>
+        <label for="environmental-range" class="form-label"
+          >Environmental Impact</label
+        >
+        <svg
+          class="info-icon"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Effects of wind and solar farms on soil health, vegetation and/or wildlife in the area."
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-info-circle"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+          />
+          <path
+            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+          />
+        </svg>
+      </div>
+      <span id="environmental-points">0</span>
+    </div>
+    <input type="range" value="0" class="form-range" id="environmental-range" />
+    <div class="d-flex justify-content-between">
+      <div>
+        <label for="social-range" class="form-label">Social Impact</label>
+        <svg
+          class="info-icon"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          title="Effects of wind and solar farms on the aesthetics of a landscape and negative externalities such as noise, shadow flickering and a decrease in average house price."
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-info-circle"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+          />
+          <path
+            d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"
+          />
+        </svg>
+      </div>
+      <span id="social-points">0</span>
+    </div>
+    <input type="range" value="0" class="form-range" id="social-range" />
+  </div>
+  <div id="map"></div>
+</div>
+{% endblock %} {% block script %}
+<script src="{% static 'map/index.js' %}"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js"></script>
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css"
+  rel="stylesheet"
+/>
 {% endblock %}

@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('map', '0002_location'),
+        ("map", "0002_location"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='location',
-            name='image',
+            model_name="location",
+            name="image",
             field=models.URLField(blank=True, max_length=500, null=True),
         ),
     ]

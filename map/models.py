@@ -14,6 +14,7 @@ class Location(models.Model):
     energy efficiency, environmental impact, and social impact. Descriptions
     of each aspect and an overview including image are all optional.
     """
+
     name = models.CharField(max_length=100)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
@@ -50,5 +51,5 @@ class Location(models.Model):
                 "efficiency": self.efficiency_description,
                 "environmental": self.environmental_description,
                 "social": self.social_description,
-            }
+            },
         }

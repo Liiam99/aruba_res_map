@@ -6,19 +6,27 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('map', '0001_initial'),
+        ("map", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Location',
+            name="Location",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('longitude', models.DecimalField(decimal_places=6, max_digits=9)),
-                ('latitude', models.DecimalField(decimal_places=6, max_digits=9)),
-                ('description', models.TextField(blank=True)),
-                ('image', models.ImageField(blank=True, upload_to='')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                ("longitude", models.DecimalField(decimal_places=6, max_digits=9)),
+                ("latitude", models.DecimalField(decimal_places=6, max_digits=9)),
+                ("description", models.TextField(blank=True)),
+                ("image", models.ImageField(blank=True, upload_to="")),
             ],
         ),
     ]

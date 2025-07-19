@@ -6,31 +6,31 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('map', '0003_auto_20210619_0924'),
+        ("map", "0003_auto_20210619_0924"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='location',
-            name='ecological_ranking',
+            model_name="location",
+            name="ecological_ranking",
             field=models.IntegerField(default=1),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='location',
-            name='economic_ranking',
+            model_name="location",
+            name="economic_ranking",
             field=models.IntegerField(default=1),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='location',
-            name='social_ranking',
+            model_name="location",
+            name="social_ranking",
             field=models.IntegerField(default=1),
             preserve_default=False,
         ),
         migrations.AddField(
-            model_name='location',
-            name='technical_ranking',
+            model_name="location",
+            name="technical_ranking",
             field=models.IntegerField(default=1),
             preserve_default=False,
         ),

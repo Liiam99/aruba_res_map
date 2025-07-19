@@ -6,18 +6,18 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('map', '0004_auto_20210620_1823'),
+        ("map", "0004_auto_20210620_1823"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='location',
-            old_name='technical_ranking',
-            new_name='efficiency_ranking',
+            model_name="location",
+            old_name="technical_ranking",
+            new_name="efficiency_ranking",
         ),
         migrations.RenameField(
-            model_name='location',
-            old_name='ecological_ranking',
-            new_name='environmental_ranking',
+            model_name="location",
+            old_name="ecological_ranking",
+            new_name="environmental_ranking",
         ),
     ]
