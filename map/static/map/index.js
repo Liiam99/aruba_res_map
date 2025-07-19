@@ -42,8 +42,7 @@ function slider_change(slider) {
 Loads the Mapbox map with all the locations retrieved from the database.
 */
 function load_map() {
-  mapboxgl.accessToken =
-    "PUT YOUR MAPBOX ACCESSTOKEN HERE";
+  mapboxgl.accessToken = "PUT YOUR MAPBOX ACCESSTOKEN HERE";
   var map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/liam99/ckq8i79x20bd018n3cv16vdo0",

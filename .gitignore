@@ -131,3 +131,9 @@ dmypy.json
 # Sass
 map/static/map/bootstrap
 map/static/map/scss
+
+node_modules
+build
+npm-debug.log
+.env
+.DS_Store

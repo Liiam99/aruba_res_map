@@ -1,0 +1,17 @@
+{
+  "name": "aruba_res_map",
+  "version": "1.0.0",
+  "description": "This web application is meant to be used as a tool for people to decide what is important for the selection of locations for renewable energy systems (RES) on Aruba. Four different aspects are considered: economic impact, energy efficiency, environmental impact, and social impact. By changing the weights of each aspect, the icons of the locations will have different colours based on their suitability for the given weighting. Each location contains an interdisciplinary overview and information for each aspect.",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.7"
+  },
+  "devDependencies": {
+    "sass": "^1.89.2"
+  }
+}
